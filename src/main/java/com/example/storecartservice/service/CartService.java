@@ -27,4 +27,8 @@ public class CartService {
        userCart.setCartList(list);
        return  userCart;
     }
+
+    public CartItem create(CartItem cartItem) {
+        return cartRepository.saveAndFlush(cartItem);
+    }
 }
