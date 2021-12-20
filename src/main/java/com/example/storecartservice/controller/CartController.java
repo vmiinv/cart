@@ -24,8 +24,8 @@ public class CartController {
         return ResponseEntity.ok(service.create(cartItem));
     }
 
-    @DeleteMapping("/{cartId}")
-    public void delete(@PathVariable("cartId") Long id) {
+    @DeleteMapping("/{productId}")
+    public void delete(@PathVariable("productId") Long id) {
         service.delete(id);
     }
 

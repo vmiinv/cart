@@ -7,6 +7,7 @@ import com.example.storecartservice.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,10 +34,12 @@ public class CartService {
     }
 
     public void delete(Long id) {
-        cartRepository.deleteById(id);
+        cartRepository.deleteCartItemsByProductId(id);
     }
 
+    @Transactional
     public void deleteAll(Long id) {
-        cartRepository.deleteAllByUser_id(id);
+        System.out.println("++" + id + "++");
+        cartRepository.deleteCartItemsByUserId(id);
     }
 }
