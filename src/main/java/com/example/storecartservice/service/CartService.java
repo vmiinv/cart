@@ -31,4 +31,12 @@ public class CartService {
     public CartItem create(CartItem cartItem) {
         return cartRepository.saveAndFlush(cartItem);
     }
+
+    public void delete(Long id) {
+        cartRepository.deleteById(id);
+    }
+
+    public void deleteAll(Long id) {
+        cartRepository.deleteAllByUser_id(id);
+    }
 }

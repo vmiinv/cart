@@ -23,4 +23,14 @@ public class CartController {
     public ResponseEntity addCart(@RequestBody CartItem cartItem) {
         return ResponseEntity.ok(service.create(cartItem));
     }
+
+    @DeleteMapping("/{cartId}")
+    public void delete(@PathVariable("cartId") Long id) {
+        service.delete(id);
+    }
+
+    @DeleteMapping("/user/{userId}")
+    public void deleteAll(@PathVariable("userId") Long id) {
+        service.deleteAll(id);
+    }
 }
